@@ -22,7 +22,7 @@ def dfs(vt,dis):
     for a,b in graph[vt]:
         # a지점을 방문하지 않았다면
         if visited[a]==-1:
-            # b(vt->a) + dis(다른 정점->vt)
+            # b(vt->a) + dis(시작정점->vt)
             visited[a]=b+dis
             dfs(a,b+dis)
 
