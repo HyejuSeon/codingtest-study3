@@ -15,4 +15,5 @@ for _ in range(t):
         dp[0][i] = max(dp[1][i-1],dp[1][i-2]) + stic[0][i-1]
         dp[1][i] = max(dp[0][i-1],dp[0][i-2]) + stic[1][i-1]
 
+    print(dp)
     print(max(dp[0][-1],dp[1][-1]))
