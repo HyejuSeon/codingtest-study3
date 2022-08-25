@@ -1,0 +1,41 @@
+## 풀이
+
+DFS로 풀었습니다.
+
+우선 입력으로 주어진 edge를 바탕으로 인접리스트를 만들어주었습니다.  
+
+각 노드의 부모노드 번호를 저장하는 parents list를 만들어준 뒤, dfs로 1부터 돌아주며 해당 노드가 leaf라면 return을, 그렇지 않다면 그 자식의 parents list의 값이 초기화해준 값인 0이라면 현재 parent로 갱신해주었습니다.  
+
+그 뒤로는 자식들을 parent 인자값으로 두고 dfs 재귀호출을 해주었습니다.  
+
+마지막에는 parents list의 값을 2부터 출력해줍니다.  
+
+## 코드
+
+```python
+import sys
+
+input = sys.stdin.readline
+sys.setrecursionlimit(10**6)
+
+N = int(input())
+tree = [[] for _ in range(N+1)]
+for _ in range(N-1):
+  a, b = map(int, input().split())
+  tree[a].append(b)
+  tree[b].append(a)
+
+
+parents = [0 for _ in range(N+1)]
+def dfs(parent):
+  if not tree[parent]:
+    return
+  for num in tree[parent]:
+    if not parents[num]:
+      parents[num] = parent
+      dfs(num)
+  
+dfs(1)
+for i in range(2, N+1):
+  print(parents[i])
+```
