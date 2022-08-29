@@ -12,12 +12,7 @@ for i in range(m):
     x1, y1, x2, y2 = map(int, input().split())
     print(dp[x2][y2] - (dp[x1 - 1][y2] + dp[x2][y1 - 1] - dp[x1 - 1][y1 - 1]))
 
-    print(dp[x1-1][y2])
-    print(dp[x2][y1-1])
-    print(dp[x1-1][y1-1])
-
 print(*dp,sep='\n')
-
 
 '''
 import sys
