@@ -14,7 +14,7 @@ while q:
        print(A[K] - 1)
        break
     for next in [2 * curr, curr - 1, curr + 1]:
-        if 0 <= next < 100001 and A[next] == 0:
+        if 0 <= next < 100001 and not A[next]:
             if next == 2 * curr:
                 A[next] = A[curr]
                 q.appendleft(next)
