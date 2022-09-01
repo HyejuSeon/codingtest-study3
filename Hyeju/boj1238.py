@@ -8,7 +8,7 @@ A = [[] for _ in range(N + 1)]
 
 for _ in range(M):
     a, b, c = map(int, sys.stdin.readline().split())
-    A[a].append((b, c))
+    A[a].append((c, b))
 
 def dijkstra(s):
     q = []
@@ -19,7 +19,7 @@ def dijkstra(s):
         dist, curr = heapq.heappop(q)
         if d[curr] < dist:
             continue
-        for next, next_dist in A[curr]:
+        for next_dist, next in A[curr]:
             next_dist += dist
             if d[next] > next_dist:
                 d[next] = next_dist
