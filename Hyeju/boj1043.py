@@ -8,7 +8,7 @@ party = []
 for i in range(M):
     party.append(list(map(int, sys.stdin.readline().split()))[1:])
 
-def update():
+def solve():
     flag = 0
     for i in range(M):
         for j in range(len(party[i])):
@@ -22,7 +22,7 @@ def update():
 
 tmp = 1
 while tmp:
-    tmp = update()
+    tmp = solve()
 
 ans = 0
 for i in range(M):
